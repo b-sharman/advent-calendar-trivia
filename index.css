@@ -1,0 +1,69 @@
+body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    cursor: default;
+    font-family: Mandali;
+    font-weight: 400;
+    color: hsl(0, 0%, 23%);
+    background-color: hsl(0, 0%, 97%);
+}
+
+footer {
+    background-color: hsl(0, 0%, 95%);
+}
+
+h1 {
+    font-family: Mandali;
+    font-size: 18px;
+    font-weight: 700;
+    color: hsl(0, 0%, 15%);
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background-color: hsl(0, 0%, 100%);
+    /* color: hsl(0, 0%, 40%); */
+    font-weight: 600;
+}
+button:focus {
+    /* This is a potential accessibility hazard
+    In fact, I don't see outlines anywhere; the entire application seems to be mouse-only
+    That's because the choices that semantically should probably be <button>'s are actually <div>'s
+    If requested, maybe I can make a future version of the product with an option to turn on outlines
+    */
+    outline-style: none;
+}
+
+.w3-card {
+    display: inline-block;
+    margin: 0px 16px;
+    max-width: 650px;
+    text-align: left;
+    box-shadow: 0 4px 6px 0 hsl(0, 0%, 60%);
+    background-color: hsl(0, 0%, 100%);
+}
+@media screen and (max-width: 375px) {
+    .w3-card {
+        margin: 0px 8px;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+#verse {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+#chapter {
+    font-style: italic;
+}
+
+#date {
+    color: hsl(0, 0%, 55%);
+}

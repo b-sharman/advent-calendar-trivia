@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+  <head>
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Google Fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mandali">
+
+    <!--W3.CSS-->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!--My own stylesheet-->
+    <link rel="stylesheet" href="index.css">
+      
+    <!--Favicons don't work if they're local?-->
+    <link rel="shortcut icon" href="favicon.ico">
+    
+    <!-- Font Awesome 5 icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <title>Advent Calendar 2019 |</title>
+
+  </head>
+
+  <body>
+
+    <div class="w3-card w3-round-large w3-topbar">
+      <header id="header" class="w3-container w3-padding">
+        <h1 id="title" class="w3-cell">Title</h1>
+        <div id="date">month day</div>
+      </header>
+
+      <div id="choices">
+        <div id="option-a" class="w3-container w3-padding-16 w3-left-align w3-hover-light-gray" onclick="check('a')">
+          <!--Option A-->
+          <div id="a-icon-holder" class="hidden w3-right"><i id="a-icon"></i></div>
+        </div>
+        <div id="option-b" class="w3-container w3-padding-16 w3-left-align w3-hover-light-gray" onclick="check('b')">
+          <!--Option B-->
+          <div id="b-icon-holder" class="hidden w3-right"><i id="b-icon"></i></div>
+        </div>
+        <div id="option-c" class="w3-container w3-padding-16 w3-left-align w3-hover-light-gray" onclick="check('c')">
+          <!--Option C-->
+          <div id="c-icon-holder" class="hidden w3-right"><i id="c-icon"></i></div>
+        </div>
+        <div id="option-d" class="w3-container w3-padding-16 w3-left-align w3-hover-light-gray" onclick="check('d')" style="border-radius: 0px 0px 8px 8px;">
+          <!--Option D-->
+          <div id="d-icon-holder" class="hidden w3-right"><i id="d-icon"></i></div>
+        </div>
+      </div>
+
+      <footer id="cont" class="hidden w3-container w3-padding" style="border-radius: 0px 0px 8px 8px;">
+        <button type="button" class="w3-container w3-right w3-padding w3-round w3-text-blue-gray" onclick="show_exp()">Next</button>
+      </footer>
+
+      <div id="exp" class="hidden w3-left-align">
+        <img id="image" src="christmas.jpg" alt="Three Wise Men" class="hidden w3-image">
+        <p id="verse" class="w3-container">verse</p>
+        <div id="chapter" class="w3-container w3-padding-16">Chapter, translation</div>
+      </div>
+
+      <div id="countdown" class="hidden w3-container w3-padding-16 w3-left-align"></div>
+
+    </div>
+
+    <!-- Inlude the script at the end to avoid problems with recognizing ids and classes -->
+    <script src="index.js"></script>
+
+  </body>
+
+</html>
