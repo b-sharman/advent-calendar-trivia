@@ -276,6 +276,7 @@ function center_card() {
 window.onload = center_card();
 window.onresize = center_card;
 
+document.title += " " + today.getFullYear();
 if (today.getMonth() !== 11 || today.getDate() > 25) {
     document.getElementById("choices").classList.add("hidden");
     document.getElementById("countdown").classList.remove("hidden");
@@ -283,14 +284,12 @@ if (today.getMonth() !== 11 || today.getDate() > 25) {
     document.getElementById("title").innerHTML = "It's not Advent season yet";
     document.getElementById("date").innerHTML = dateString;
 
-    document.title += " (Not Advent season yet)";
-
     checkTime();
 
     throw Error("Not advent season");
 }
 else {
-    document.title += " Day " + today.getDate() + " - Advent Calendar Trivia " + today.getFullYear();
+    document.title = " Day " + today.getDate() + " - Advent Calendar Trivia " + today.getFullYear();
 }
 
 var trivia = alltrivia[today.getDate()];
