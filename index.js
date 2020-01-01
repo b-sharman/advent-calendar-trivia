@@ -209,7 +209,12 @@ function format(arg) {
 
 function checkTime() {
     if (today.getMonth() !== 11 || (today.getMonth() == 11 && today.getDate() > 25)) {
-        var startOfAdvent = new Date("December 1, " + today.getFullYear() + " 00:00:00");
+        var year = today.getFullYear();
+        if (today.getMonth() == 11 && today.getDate() > 25) {
+            year += 1;
+        }
+
+        var startOfAdvent = new Date("December 1, " + year + " 00:00:00");
         var diff = startOfAdvent.getTime() - Date.now();
         var days = diff / 86400000;
         var hours = (days - Math.trunc(days)) * 24;
