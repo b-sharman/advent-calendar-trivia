@@ -72,6 +72,7 @@ function checkTime() {
     }
     else {
         document.getElementById("countdown").innerHTML = "Happy New Year!";
+        document.title += " " + today.getFullYear();
     }
 }
 
