@@ -1,6 +1,6 @@
-// we are going to write the json directly in here because A) it looks like it's hard to read a file and
-// B) if I ever want to package this into an app or distribute it to friends, it will be nice to not have
-// to deal with compatibilities and a random json file lying around.
+// we are going to write the json directly in here because it's super hard to read a JSON file in Javascript
+// which is like a totally regular thing to do
+// so Javascript sucks
 var triviaJson = `
 {"1":{"title":"What was the name of Joseph\'s father?",
       "options":["Josiah", "Jechoniah", "Jehoshaphat", "Jacob"],
