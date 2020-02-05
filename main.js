@@ -1,6 +1,6 @@
-// we are going to write the json directly in here because it's super hard to read a JSON file in Javascript
-// which is like a totally regular thing to do
-// so Javascript sucks
+// we are going to write the json directly in here because A) it looks like it's hard to read a file and
+// B) if I ever want to package this into an app or distribute it to friends, it will be nice to not have
+// to deal with compatibilities and a random json file lying around.
 var triviaJson = `
 {"1":{"title":"What was the name of Joseph\'s father?",
       "options":["Josiah", "Jechoniah", "Jehoshaphat", "Jacob"],
@@ -154,7 +154,8 @@ var triviaJson = `
      }
 }`;
 
-// I omitted the colors that didn't seem dark/vibrant enough
+// I omitted the colors that didn't seem like good choices.
+// This basically equates to all the colors that had black text.
 // https://www.w3schools.com/w3css/w3css_colors.asp
 var w3Colors = ["red",
                 "pink",
@@ -172,6 +173,7 @@ var w3Colors = ["red",
 //                "gray",
                 "dark-gray"
                 ];
+
 var color = w3Colors[Math.floor(Math.random() * w3Colors.length)];
 
 var alltrivia = JSON.parse(triviaJson);
@@ -188,15 +190,15 @@ var months = ["January",
               "October",
               "November",
               "December"];
+
 var letters = ["a", "b", "c", "d"];
 var ths = ["First", "Second", "Third", "Fourth"];
 
 var today = new Date();
 var dateString = months[today.getMonth()] + " " + today.getDate();
 
-for (var element of document.getElementsByClassName("w3-card")) {
-    element.classList.add("w3-border-" + color);
-}
+document.title = "Day " + today.getDate() + " - Advent Calendar Trivia " + today.getFullYear();
+document.getElementById("header").classList.add("w3-" + color);
 
 function format(arg) {
     var ret = Math.trunc(arg).toString();
@@ -209,12 +211,7 @@ function format(arg) {
 
 function checkTime() {
     if (today.getMonth() !== 11 || (today.getMonth() == 11 && today.getDate() > 25)) {
-        var year = today.getFullYear();
-        if (today.getMonth() == 11 && today.getDate() > 25) {
-            year += 1;
-        }
-
-        var startOfAdvent = new Date("December 1, " + year + " 00:00:00");
+        var startOfAdvent = new Date("December 1, " + today.getFullYear() + " 00:00:00");
         var diff = startOfAdvent.getTime() - Date.now();
         var days = diff / 86400000;
         var hours = (days - Math.trunc(days)) * 24;
@@ -227,59 +224,15 @@ function checkTime() {
             var days = "";
         }
 
-        document.getElementById("countdown").innerHTML = Math.trunc(days).toString() + " days " + format(hours) + ":" + format(minutes) + ":" + format(seconds) + " to wait";
+        document.getElementById("early").innerHTML = Math.trunc(days).toString() + " days " + format(hours) + ":" + format(minutes) + ":" + format(seconds) + " to wait";
         setTimeout(checkTime, 1000); // check again in 1000 ms
     }
 }
 
-function check(choice) {
-    document.getElementById(choice + "-icon-holder").classList.remove("hidden");
-    document.getElementById("cont").classList.remove("hidden");
-    letters.forEach(function(letter, i) {
-        var option = document.getElementById("option-" + letter)
-        option.classList.remove("w3-hover-light-gray");
-        option.removeAttribute("onclick");
-
-        // always show the correct answer
-        if (trivia.icons[i] == "check") {
-            var iconClassList = document.getElementById(letter + "-icon-holder").classList
-            iconClassList.remove("hidden");
-            iconClassList.add("w3-animate-zoom");
-        }
-    });
-
-    center_card();
-}
-
-function show_exp() {
-    document.getElementById("choices").classList.add("hidden");
-    document.getElementById("cont").classList.add("hidden");
-    console.log(document.getElementById("cont").classList);
-    document.getElementById("exp").classList.remove("hidden");
-
-    center_card();
-}
-
-function center_card() {
-    // Center the card
-    //
-    // I'm tired of trying to use CSS hacks to center vertically
-    // This way stinks too
-    // Welcome to web dev
-    var bodyHeight = document.getElementsByTagName("body")[0].clientHeight;
-    var cardHeight = document.getElementsByClassName("w3-card")[0].clientHeight;
-    var padding = (bodyHeight - cardHeight) / 2;
-    // I don't think the String() is necessary, but it makes me feel good
-    document.getElementsByTagName("body")[0].style.padding = String(padding) + "px 0";
-}
-
-window.onload = center_card();
-window.onresize = center_card;
-
-document.title += " " + today.getFullYear();
+/*
 if (today.getMonth() !== 11 || today.getDate() > 25) {
     document.getElementById("choices").classList.add("hidden");
-    document.getElementById("countdown").classList.remove("hidden");
+    document.getElementById("early").classList.remove("hidden");
 
     document.getElementById("title").innerHTML = "It's not Advent season yet";
     document.getElementById("date").innerHTML = dateString;
@@ -288,12 +241,11 @@ if (today.getMonth() !== 11 || today.getDate() > 25) {
 
     throw Error("Not advent season");
 }
-else {
-    document.title = " Day " + today.getDate() + " - Advent Calendar Trivia " + today.getFullYear();
-}
+*/
 
-var trivia = alltrivia[today.getDate()];
-// var trivia = alltrivia[10];
+// in the future we want to index this by today.getDate() - 1
+// var trivia = alltrivia[today.getDate()];
+var trivia = alltrivia[4];
 
 if (today.getDay() == 0) {
     dateString += " (" + ths[Math.floor(today.getDate() / 7)] + " Sunday of Advent)";
@@ -312,21 +264,28 @@ document.getElementById("title").innerHTML = trivia.title;
 document.getElementById("verse").innerHTML = trivia.verse;
 document.getElementById("chapter").innerHTML = "&mdash;" + trivia.chapter;
 
-letters.forEach(function(letter, i) {
+for (i = 0; i < letters.length; i++) {
     // don't use .innerHTML = because it DESTROYS all child elements
     // that is really scary and hard to debug
     // as I learned the hard way :P
     //
     // https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML
-    document.getElementById("option-" + letter).insertAdjacentHTML("afterbegin", trivia.options[i]);
-    document.getElementById(letter + "-icon").classList.add("fas", "fa-" + trivia.icons[i]);
+    document.getElementById("option-" + letters[i]).insertAdjacentHTML("afterbegin", trivia.options[i]);
+    document.getElementById(letters[i] + "-icon").classList.add("fas", "fa-" + trivia.icons[i]);
     if (trivia.icons[i] == "check") {
-        document.getElementById(letter + "-icon-holder").classList.add("w3-text-green");
+        document.getElementById(letters[i] + "-icon-holder").classList.add("w3-text-green");
     }
     else {
-        document.getElementById(letter + "-icon-holder").classList.add("w3-text-red");
+        document.getElementById(letters[i] + "-icon-holder").classList.add("w3-text-red");
     }
-});
+}
 
-// We have to call this function so many times
-center_card();
+function check(choice) {
+    document.getElementById(choice + "-icon-holder").classList.remove("hidden");
+    document.getElementById('cont').style.display = 'block';
+}
+
+function show_exp() {
+    document.getElementById('choices').classList.add("hidden");
+    document.getElementById('exp').classList.remove("hidden");
+}

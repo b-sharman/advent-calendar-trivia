@@ -1,0 +1,21 @@
+
+.hidden {
+    display: none;
+}
+
+.w3-container {
+    cursor: default;
+}
+
+#verse {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+#chapter {
+    font-style: italic;
+}
+
+#date {
+    font-style: italic;
+}
