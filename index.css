@@ -10,10 +10,6 @@ body {
     background-color: hsl(0, 0%, 97%);
 }
 
-footer {
-    background-color: hsl(0, 0%, 95%);
-}
-
 h1 {
     font-family: Mandali;
     font-size: 18px;
@@ -67,4 +63,15 @@ button:focus {
 
 #date {
     color: hsl(0, 0%, 55%);
+}
+
+#cont {
+    background-color: hsl(0, 0%, 95%);
+}
+
+#website-link {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    bottom: 15px;
 }
