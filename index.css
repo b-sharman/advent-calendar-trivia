@@ -62,6 +62,7 @@ button:focus {
 
 #chapter {
     font-style: italic;
+    margin-left: 50px;
 }
 
 #date {
