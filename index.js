@@ -175,6 +175,7 @@ var w3Colors = ["red",
 var color = w3Colors[Math.floor(Math.random() * w3Colors.length)];
 
 var alltrivia = JSON.parse(triviaJson);
+var trivia;
 
 var months = ["January",
               "February",
@@ -193,6 +194,7 @@ var ths = ["First", "Second", "Third", "Fourth"];
 
 var today = new Date();
 var dateString = months[today.getMonth()] + " " + today.getDate();
+var startOfAdvent;
 
 for (var element of document.getElementsByClassName("w3-card")) {
     element.classList.add("w3-border-" + color);
@@ -207,6 +209,7 @@ function format(arg) {
     return ret;
 }
 
+// Returns false if Advent is already in progress; updates the countdown and returns true otherwise.
 function checkTime() {
     if (today.getMonth() !== 11 || (today.getMonth() == 11 && today.getDate() > 25)) {
         var year = today.getFullYear();
@@ -214,8 +217,19 @@ function checkTime() {
             year += 1;
         }
 
-        var startOfAdvent = new Date("December 1, " + year + " 00:00:00");
+        var christmas = new Date("December 25, " + year + " 00:00:00");
+        // The beginning of Advent is four Sundays before Christmas.
+        var lengthOfAdvent = christmas.getDay() + 21;
+        // If Christmas is on Sunday, the fourth Sunday of Advent is a whole week before it.
+        if (christmas.getDay() == 0) {
+            lengthOfAdvent += 7;
+        }
+        startOfAdvent = christmas;
+        startOfAdvent.setDate(christmas.getDate() - lengthOfAdvent);
         var diff = startOfAdvent.getTime() - Date.now();
+        if (diff <= 0) {
+            return false;
+        }
         var days = diff / 86400000;
         var hours = (days - Math.trunc(days)) * 24;
         var minutes = (hours - Math.trunc(hours)) * 60;
@@ -228,7 +242,7 @@ function checkTime() {
         }
 
         document.getElementById("countdown").innerHTML = Math.trunc(days).toString() + " days " + format(hours) + ":" + format(minutes) + ":" + format(seconds) + " to wait";
-        setTimeout(checkTime, 1000); // check again in 1000 ms
+        return true;
     }
 }
 
@@ -273,60 +287,78 @@ function center_card() {
     document.getElementsByTagName("body")[0].style.padding = String(padding) + "px 0";
 }
 
-window.onload = center_card();
-window.onresize = center_card;
+async function main() {
+    window.onload = center_card();
+    window.onresize = center_card;
 
-document.title += " " + today.getFullYear();
-if (today.getMonth() !== 11 || today.getDate() > 25) {
-    document.getElementById("choices").classList.add("hidden");
-    document.getElementById("countdown").classList.remove("hidden");
-
-    document.getElementById("title").innerHTML = "It's not Advent season yet";
-    document.getElementById("date").innerHTML = dateString;
-
-    checkTime();
-
-    throw Error("Not advent season");
-}
-else {
-    document.title = " Day " + today.getDate() + " - Advent Calendar Trivia " + today.getFullYear();
-}
-
-var trivia = alltrivia[today.getDate()];
-// var trivia = alltrivia[10];
-
-if (today.getDay() == 0) {
-    dateString += " (" + ths[Math.floor(today.getDate() / 7)] + " Sunday of Advent)";
-}
-if (today.getDate() == 24) {
-    dateString += " (Christmas Eve)";
-}
-if (today.getDate() == 25) {
-    dateString += " (Christmas)";
-    document.getElementById("image").classList.remove("hidden");
-}
-
-document.getElementById("date").innerHTML = dateString;
-document.getElementById("title").innerHTML = trivia.title;
-
-document.getElementById("verse").innerHTML = trivia.verse;
-document.getElementById("chapter").innerHTML = "&mdash;" + trivia.chapter;
-
-letters.forEach(function(letter, i) {
-    // don't use .innerHTML = because it DESTROYS all child elements
-    // that is really scary and hard to debug
-    // as I learned the hard way :P
+    // document.title += " " + today.getFullYear();
+    // if (today.getMonth() !== 11 || today.getDate() > 25) {
+    //     document.getElementById("choices").classList.add("hidden");
+    //     document.getElementById("countdown").classList.remove("hidden");
     //
-    // https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML
-    document.getElementById("option-" + letter).insertAdjacentHTML("afterbegin", trivia.options[i]);
-    document.getElementById(letter + "-icon").classList.add("fas", "fa-" + trivia.icons[i]);
-    if (trivia.icons[i] == "check") {
-        document.getElementById(letter + "-icon-holder").classList.add("w3-text-green");
-    }
-    else {
-        document.getElementById(letter + "-icon-holder").classList.add("w3-text-red");
-    }
-});
+    //     document.getElementById("title").innerHTML = "It's not Advent season yet";
+    //     document.getElementById("date").innerHTML = dateString;
+    //
+    //     checkTime();
+    //
+    //     throw Error("Not advent season");
+    // }
+    // else {
+    //     document.title = " Day " + today.getDate() + " - Advent Calendar Trivia " + today.getFullYear();
+    // }
 
-// We have to call this function so many times
-center_card();
+    if (checkTime()) {
+        document.title += " " + today.getFullYear();
+        document.getElementById("choices").classList.add("hidden");
+        document.getElementById("countdown").classList.remove("hidden");
+
+        document.getElementById("title").innerHTML = "It's not Advent season yet";
+        document.getElementById("date").innerHTML = dateString;
+    }
+    while (checkTime()) {
+        await new Promise(r => setTimeout(r, 100)); // ten times every second
+    }
+    document.title = " Day " + today.getDate() + " - Advent Calendar Trivia " + today.getFullYear();
+
+    var daysSinceAdvent = Math.floor((today - startOfAdvent) / 86400000);
+    trivia = alltrivia[daysSinceAdvent + 1];
+    // var trivia = alltrivia[10];
+
+    if (today.getDay() == 0) {
+        dateString += " (" + ths[daysSinceAdvent / 7] + " Sunday of Advent)";
+    }
+    if (today.getDate() == 24) {
+        dateString += " (Christmas Eve)";
+    }
+    if (today.getDate() == 25) {
+        dateString += " (Christmas)";
+        document.getElementById("image").classList.remove("hidden");
+    }
+
+    document.getElementById("date").innerHTML = dateString;
+    document.getElementById("title").innerHTML = trivia.title;
+
+    document.getElementById("verse").innerHTML = trivia.verse;
+    document.getElementById("chapter").innerHTML = "&mdash;" + trivia.chapter;
+
+    letters.forEach(function(letter, i) {
+        // don't use .innerHTML = because it DESTROYS all child elements
+        // that is really scary and hard to debug
+        // as I learned the hard way :P
+        //
+        // https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML
+        document.getElementById("option-" + letter).insertAdjacentHTML("afterbegin", trivia.options[i]);
+        document.getElementById(letter + "-icon").classList.add("fas", "fa-" + trivia.icons[i]);
+        if (trivia.icons[i] == "check") {
+            document.getElementById(letter + "-icon-holder").classList.add("w3-text-green");
+        }
+        else {
+            document.getElementById(letter + "-icon-holder").classList.add("w3-text-red");
+        }
+    });
+
+    // We have to call this function so many times
+    center_card();
+}
+
+main();
