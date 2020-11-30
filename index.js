@@ -268,7 +268,6 @@ function check(choice) {
 function show_exp() {
     document.getElementById("choices").classList.add("hidden");
     document.getElementById("cont").classList.add("hidden");
-    console.log(document.getElementById("cont").classList);
     document.getElementById("exp").classList.remove("hidden");
 
     center_card();
