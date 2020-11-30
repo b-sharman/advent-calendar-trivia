@@ -6,7 +6,7 @@ var triviaJson = `
       "options":["Josiah", "Jechoniah", "Jehoshaphat", "Jacob"],
       "icons": ["times", "times", "times", "check"],
       "verse":"&hellip;Matthan the father of Jacob, and Jacob the father of Joseph the husband of Mary, of whom Jesus was born, who is called Christ.",
-      "chapter":"Matthew 1:15b-16"
+      "chapter":"Matthew 1:15b&ndash;16"
       },
  "2":{"title":"Which angel told Mary she would bear a son?",
       "options":["Michael", "Gabriel", "Lucifer", "Their name wasn\'t mentioned"],
@@ -18,7 +18,7 @@ var triviaJson = `
       "options":["Antoninus", "Quintinus", "Zechariah", "Quirinius"],
       "icons": ["times", "times", "times", "check"],
       "verse":"In those days a decree went out from Caesar Augustus that all the world should be registered. This was the first registration when Quirinius was governor of Syria.",
-      "chapter":"Luke 2:1-2"
+      "chapter":"Luke 2:1&ndash;2"
      },
  "4":{"title":"Who prophesied that Jesus' birth would be in Bethlehem?",
       "options":["Zechariah", "Isaiah", "Malachi", "Micah"],
@@ -30,7 +30,7 @@ var triviaJson = `
       "options":["The North", "The South", "The East", "The West"],
       "icons": ["times", "times", "check", "times"],
       "verse":"And going into the house, they saw the child with Mary his mother, and they fell down and worshiped him. Then, opening their treasures, they offered him gifts, gold and frankincense and myrrh. And being warned in a dream not to return to Herod, they departed to their own country by another way.",
-      "chapter":"Matthew 2:1-2"
+      "chapter":"Matthew 2:1&ndash;2"
      },
  "6":{"title":"Which of these titles appeared in Isaiah 9:6?",
       "options":["Everlasting Father", "Wonderful God", "Mighty Counselor", "Everlasting Prince"],
@@ -48,7 +48,7 @@ var triviaJson = `
       "options":["To tell others what the angels said", "To hide from the angels", "To see the Savior", "To buy food"],
       "icons": ["times", "times", "check", "times"],
       "verse":"And the angel said to them, “Fear not, for behold, I bring you good news of great joy that will be for all the people. For unto you is born this day in the city of David a Savior, who is Christ the Lord. And this will be a sign for you: you will find a baby wrapped in swaddling cloths and lying in a manger.” &hellip; When the angels went away from them into heaven, the shepherds said to one another, “Let us go over to Bethlehem and see this thing that has happened, which the Lord has made known to us.” And they went with haste and found Mary and Joseph, and the baby lying in a manger.",
-      "chapter":"Luke 2:10-12, 15-16"
+      "chapter":"Luke 2:10&ndash;12, 15&ndash;16"
      },
  "9":{"title":"How did Joseph and Mary travel to Bethlehem?",
       "options":["Donkey", "Camel", "They walked", "Not specified"],
@@ -66,7 +66,7 @@ var triviaJson = `
       "options":["They were warned in a dream", "Herod told them that they no longer had to report", "They were killed by Herod's decree", "They were afraid Herod would punish them"],
       "icons": ["check", "times", "times", "times"],
       "verse":"And going into the house, they saw the child with Mary his mother, and they fell down and worshiped him. Then, opening their treasures, they offered him gifts, gold and frankincense and myrrh. And being warned in a dream not to return to Herod, they departed to their own country by another way.",
-      "chapter":"Matthew 2:11-12"
+      "chapter":"Matthew 2:11&ndash;12"
      },
  "12":{"title":"What were the ages of the male children that Herod killed?",
       "options":["6 months or younger", "1 year or younger", "2 years or younger", "3 years or younger"],
@@ -78,7 +78,7 @@ var triviaJson = `
       "options":["Because he wanted to live in his home town again", "His friend Archelaus recommended it", "Herod threatened to kill all male children again", "Herod's son was ruling over Judea"],
       "icons": ["times", "times", "times", "check"],
       "verse":"But when Herod died, behold, an angel of the Lord appeared in a dream to Joseph in Egypt, saying, “Rise, take the child and his mother and go to the land of Israel, for those who sought the child's life are dead.” And he rose and took the child and his mother and went to the land of Israel. But when he heard that Archelaus was reigning over Judea in place of his father Herod, he was afraid to go there, and being warned in a dream he withdrew to the district of Galilee. And he went and lived in a city called Nazareth, so that what was spoken by the prophets might be fulfilled, that he would be called a Nazarene.",
-      "chapter":"Matthew 2:19-23"
+      "chapter":"Matthew 2:19&ndash;23"
      },
  "14":{"title":"Which of these did John the Baptist wear?",
       "options":["A garment of goat's hair", "A toga of camel's hair", "A garment of camel's hair", "Bear skin"],
@@ -90,19 +90,19 @@ var triviaJson = `
       "options":["Elizabeth", "The Wise Men", "Joseph", "Mary"],
       "icons": ["times", "times", "times", "check"],
       "verse":"In the sixth month the angel Gabriel was sent from God to a city of Galilee named Nazareth, to a virgin betrothed to a man whose name was Joseph, of the house of David. And the virgin's name was Mary. And he came to her and said, “Greetings, O favored one, the Lord is with you!”",
-      "chapter":"Luke 1:26-28"
+      "chapter":"Luke 1:26&ndash;28"
      },
  "16":{"title":"Where was Zechariah's house?",
       "options":["Venice", "Bethlehem", "The hill country", "Zechariah and Joseph shared a house"],
       "icons": ["times", "times", "check", "times"],
       "verse":"In those days Mary arose and went with haste into the hill country, to a town in Judah, and she entered the house of Zechariah and greeted Elizabeth.",
-      "chapter":"Luke 1:39-40"
+      "chapter":"Luke 1:39&ndash;40"
      },
  "17":{"title":"When an angel of the Lord appeared to the shepherds, where did the glory of the Lord shine?",
       "options":["Over them", "Through them", "Around them", "Into them"],
       "icons": ["times", "times", "check", "times"],
       "verse":"And in the same region there were shepherds out in the field, keeping watch over their flock by night. And an angel of the Lord appeared to them, and the glory of the Lord shone around them, and they were filled with great fear.",
-      "chapter":"Luke 2:8-9"
+      "chapter":"Luke 2:8&ndash;9"
      },
  "18":{"title":"When did Gabriel tell Mary to name her baby Jesus?",
       "options":["Eight days after birth", "Seven days after birth", "Before he was conceived", "After he was conceived"],
@@ -120,7 +120,7 @@ var triviaJson = `
       "options":["A lamb a year old and a pigeon or dove", "A pair of turtledoves, or two young pigeons", "A grain offering of unleavened loaves", "Two turtledoves and a partridge in a pear tree"],
       "icons": ["times", "check", "times", "times"],
       "verse":"And when the time came for their purification according to the Law of Moses, they brought him up to Jerusalem to present him to the Lord (as it is written in the Law of the Lord, “Every male who first opens the womb shall be called holy to the Lord”) and to offer a sacrifice according to what is said in the Law of the Lord, “a pair of turtledoves, or two young pigeons.”",
-      "chapter":"Luke 2:22-24"
+      "chapter":"Luke 2:22&ndash;24"
      },
  "21":{"title":"What was Simeon waiting for?",
       "options":["The King of Israel", "The Savior of Israel", "The peace of Israel", "The consolation of Israel"],
@@ -132,7 +132,7 @@ var triviaJson = `
       "options":["exalted", "blessed", "favored", "humble"],
       "icons": ["times", "check", "times", "times"],
       "verse":"My soul magnifies the Lord, and my spirit rejoices in God my Savior, for he has looked on the humble estate of his servant. For behold, from now on all generations will call me blessed.",
-      "chapter":"Luke 1:46a-48"
+      "chapter":"Luke 1:46a&ndash;48"
      },
  "23":{"title":"Name the chapter and verse: “But Mary treasured up all these things, pondering them in her heart.”",
       "options":["Luke 2:7", "Luke 2:14", "Luke 2:19", "Luke 2:51"],
