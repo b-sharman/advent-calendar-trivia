@@ -211,39 +211,37 @@ function format(arg) {
 
 // Returns false if Advent is already in progress; updates the countdown and returns true otherwise.
 function checkTime() {
-    if (today.getMonth() !== 11 || (today.getMonth() == 11 && today.getDate() > 25)) {
-        var year = today.getFullYear();
-        if (today.getMonth() == 11 && today.getDate() > 25) {
-            year += 1;
-        }
-
-        var christmas = new Date("December 25, " + year + " 00:00:00");
-        // The beginning of Advent is four Sundays before Christmas.
-        var lengthOfAdvent = christmas.getDay() + 21;
-        // If Christmas is on Sunday, the fourth Sunday of Advent is a whole week before it.
-        if (christmas.getDay() == 0) {
-            lengthOfAdvent += 7;
-        }
-        startOfAdvent = christmas;
-        startOfAdvent.setDate(christmas.getDate() - lengthOfAdvent);
-        var diff = startOfAdvent.getTime() - Date.now();
-        if (diff <= 0) {
-            return false;
-        }
-        var days = diff / 86400000;
-        var hours = (days - Math.trunc(days)) * 24;
-        var minutes = (hours - Math.trunc(hours)) * 60;
-        var seconds = (minutes - Math.trunc(minutes)) * 60;
-
-        // Don't show the number of days if it's only hours left
-        if (Math.trunc(days) == 0) {
-            console.log(":P");
-            var days = "";
-        }
-
-        document.getElementById("countdown").innerHTML = Math.trunc(days).toString() + " days " + format(hours) + ":" + format(minutes) + ":" + format(seconds) + " to wait";
-        return true;
+    var year = today.getFullYear();
+    if (today.getMonth() == 11 && today.getDate() > 25) {
+        year += 1;
     }
+
+    var christmas = new Date("December 25, " + year + " 00:00:00");
+    // The beginning of Advent is four Sundays before Christmas.
+    var lengthOfAdvent = christmas.getDay() + 21;
+    // If Christmas is on Sunday, the fourth Sunday of Advent is a whole week before it.
+    if (christmas.getDay() == 0) {
+        lengthOfAdvent += 7;
+    }
+    startOfAdvent = christmas;
+    startOfAdvent.setDate(christmas.getDate() - lengthOfAdvent);
+    var diff = startOfAdvent.getTime() - Date.now();
+    if (diff <= 0) {
+        return false;
+    }
+    var days = diff / 86400000;
+    var hours = (days - Math.trunc(days)) * 24;
+    var minutes = (hours - Math.trunc(hours)) * 60;
+    var seconds = (minutes - Math.trunc(minutes)) * 60;
+
+    // Don't show the number of days if it's only hours left
+    if (Math.trunc(days) == 0) {
+        console.log(":P");
+        var days = "";
+    }
+
+    document.getElementById("countdown").innerHTML = Math.trunc(days).toString() + " days " + format(hours) + ":" + format(minutes) + ":" + format(seconds) + " to wait";
+    return true;
 }
 
 function check(choice) {
