@@ -315,11 +315,12 @@ async function main() {
     while (checkTime()) {
         await new Promise(r => setTimeout(r, 100)); // ten times every second
     }
-    document.title = " Day " + today.getDate() + " - Advent Calendar Trivia " + today.getFullYear();
 
     var daysSinceAdvent = Math.floor((today - startOfAdvent) / 86400000);
     trivia = alltrivia[daysSinceAdvent + 1];
     // var trivia = alltrivia[10];
+
+    document.title = " Day " + (daysSinceAdvent + 1) + " - Advent Calendar Trivia " + today.getFullYear();
 
     if (today.getDay() == 0) {
         dateString += " (" + ths[daysSinceAdvent / 7] + " Sunday of Advent)";
