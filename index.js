@@ -246,21 +246,17 @@ function checkTime() {
 
 function check(choice) {
     document.getElementById(choice + "-icon-holder").classList.remove("hidden");
-    document.getElementById("cont").classList.remove("hidden");
-    letters.forEach(function(letter, i) {
-        var option = document.getElementById("option-" + letter)
-        option.classList.remove("w3-hover-light-gray");
-        option.removeAttribute("onclick");
-
-        // always show the correct answer
-        if (trivia.icons[i] == "check") {
-            var iconClassList = document.getElementById(letter + "-icon-holder").classList
-            iconClassList.remove("hidden");
-            iconClassList.add("w3-animate-zoom");
-        }
-    });
-
-    center_card();
+    document.getElementById(choice + "-icon-holder").classList.add("w3-animate-zoom");
+    // if the clicked option is the correct option
+    if (letters.indexOf(choice) == trivia.icons.indexOf("check")) {
+        document.getElementById("cont").classList.remove("hidden");
+        center_card();
+        letters.forEach(function(letter, i) {
+            var option = document.getElementById("option-" + letter)
+            option.classList.remove("w3-hover-light-gray");
+            option.removeAttribute("onclick");
+        });
+    }
 }
 
 function show_exp() {
