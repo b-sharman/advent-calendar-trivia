@@ -151,7 +151,19 @@ var triviaJson = `
       "icons": ["times", "times", "check", "times"],
       "verse":"Then Herod summoned the wise men secretly and ascertained from them what time the star had appeared.",
       "chapter":"Matthew 2:7"
-     }
+     },
+"26":{"title":"Which of the following is NOT a book in the Bible?",
+   "options":["Joel", "Haggai", "Hezekiah", "Nahum"],
+   "icons": ["times", "times", "check", "times"],
+   "verse":"Hezekiah, son of Ahaz, was a good king of Judah, but did not have a book of the Bible dedicated to him—he appears in Second Kings and Second Chronicles.",
+   "chapter":"The Bible"
+  },
+"27":{"title":"According to the Gospel of John, where did Pilate sit?",
+     "options":["The Stone Pavement", "Golgatha", "The House of Caiaphas", "Jerusalem"],
+     "icons": ["check", "times", "times", "times"],
+     "verse":"So when Pilate haerd these words, he brought Jesus out and sat down on the judgment seat at a place called The Stone Pavement, and in Aramaic Gabbatha.",
+     "chapter":"John 19:13"
+    }
 }`;
 
 // I omitted the colors that didn't seem dark/vibrant enough
