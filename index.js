@@ -161,7 +161,7 @@ var triviaJson = `
 "27":{"title":"According to the Gospel of John, where did Pilate sit?",
      "options":["The Stone Pavement", "Golgatha", "The House of Caiaphas", "Jerusalem"],
      "icons": ["check", "times", "times", "times"],
-     "verse":"So when Pilate haerd these words, he brought Jesus out and sat down on the judgment seat at a place called The Stone Pavement, and in Aramaic Gabbatha.",
+     "verse":"So when Pilate heard these words, he brought Jesus out and sat down on the judgment seat at a place called The Stone Pavement, and in Aramaic Gabbatha.",
      "chapter":"John 19:13"
     }
 }`;
