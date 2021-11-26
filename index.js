@@ -224,14 +224,19 @@ function format(arg) {
 // Returns false if Advent is already in progress; updates the countdown and returns true otherwise.
 function checkTime() {
     var year = today.getFullYear();
+    // If it's in December but past Christmas, the next Christmas isn't until next year.
     if (today.getMonth() == 11 && today.getDate() > 25) {
         year += 1;
     }
 
     var christmas = new Date("December 25, " + year + " 00:00:00");
     // The beginning of Advent is four Sundays before Christmas.
+    // lengthOfAdvent is the amount of days to go back from Christmas in order to get the
+    // startOfAdvent, so it first goes back to the Sunday before Christmas and then backs
+    // up three more weeks.
     var lengthOfAdvent = christmas.getDay() + 21;
-    // If Christmas is on Sunday, the fourth Sunday of Advent is a whole week before it.
+    // If Christmas is on Sunday, we need to go back a week, but christmas.getDay() will
+    // only return 0.
     if (christmas.getDay() == 0) {
         lengthOfAdvent += 7;
     }
