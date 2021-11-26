@@ -252,7 +252,12 @@ function checkTime() {
         var days = "";
     }
 
-    document.getElementById("countdown").innerHTML = Math.trunc(days).toString() + " days " + format(hours) + ":" + format(minutes) + ":" + format(seconds) + " to wait";
+    var waitString = Math.trunc(days).toString() + " day";
+    if (Math.trunc(days) != 1) { // plural unless there is only 1 day left
+        waitString += "s";
+    }
+    waitString += " " + format(hours) + ":" + format(minutes) + ":" + format(seconds) + " to wait";
+    document.getElementById("countdown").innerHTML = waitString;
     return true;
 }
 
