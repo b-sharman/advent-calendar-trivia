@@ -166,26 +166,6 @@ var triviaJson = `
     }
 }`;
 
-// I omitted the colors that didn't seem dark/vibrant enough
-// https://www.w3schools.com/w3css/w3css_colors.asp
-var w3Colors = ["red",
-                "pink",
-                "purple",
-                "deep-purple",
-                "indigo",
-                "blue",
-                "teal",
-                "green",
-//                "light-green",
-//                "orange",
-                "deep-orange",
-                "blue-gray",
-                "brown",
-//                "gray",
-                "dark-gray"
-                ];
-var color = w3Colors[Math.floor(Math.random() * w3Colors.length)];
-
 var alltrivia = JSON.parse(triviaJson);
 var trivia;
 
@@ -207,6 +187,28 @@ var ths = ["First", "Second", "Third", "Fourth"];
 var today = new Date();
 var dateString = months[today.getMonth()] + " " + today.getDate();
 var startOfAdvent;
+
+// I omitted the colors that didn't seem dark/vibrant enough
+// https://www.w3schools.com/w3css/w3css_colors.asp
+var w3Colors = ["red",
+                "pink",
+                "purple",
+                "deep-purple",
+                "indigo",
+                "blue",
+                "teal",
+                "green",
+//                "light-green",
+//                "orange",
+                "deep-orange",
+                "blue-gray",
+                "brown",
+//                "gray",
+                "dark-gray"
+                ];
+// indexing w3Colors by the remainder when dividing by its length ensures a different color each
+// day, in the same order as in the list
+var color = w3Colors[today.getDate() % w3Colors.length];
 
 for (var element of document.getElementsByClassName("w3-card")) {
     element.classList.add("w3-border-" + color);
