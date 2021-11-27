@@ -288,11 +288,9 @@ function show_exp() {
 }
 
 function center_card() {
-    // Center the card
+    // center the card
     //
     // I'm tired of trying to use CSS hacks to center vertically
-    // This way stinks too
-    // Welcome to web dev
     var bodyHeight = document.getElementsByTagName("body")[0].clientHeight;
     var cardHeight = document.getElementsByClassName("w3-card")[0].clientHeight;
     var padding = (bodyHeight - cardHeight) / 2;
@@ -303,22 +301,6 @@ function center_card() {
 async function main() {
     window.onload = center_card();
     window.onresize = center_card;
-
-    // document.title += " " + today.getFullYear();
-    // if (today.getMonth() !== 11 || today.getDate() > 25) {
-    //     document.getElementById("choices").classList.add("hidden");
-    //     document.getElementById("countdown").classList.remove("hidden");
-    //
-    //     document.getElementById("title").innerHTML = "It's not Advent season yet";
-    //     document.getElementById("date").innerHTML = dateString;
-    //
-    //     checkTime();
-    //
-    //     throw Error("Not advent season");
-    // }
-    // else {
-    //     document.title = " Day " + today.getDate() + " - Advent Calendar Trivia " + today.getFullYear();
-    // }
 
     if (checkTime()) {
         document.title += " " + today.getFullYear();
@@ -334,6 +316,7 @@ async function main() {
 
     var daysSinceAdvent = Math.floor((today - startOfAdvent) / 86400000);
     trivia = alltrivia[daysSinceAdvent + 1];
+    // uncomment to choose trivia from a certain day
     // var trivia = alltrivia[10];
 
     document.title = " Day " + (daysSinceAdvent + 1) + " - Advent Calendar Trivia " + today.getFullYear();
@@ -358,7 +341,6 @@ async function main() {
     letters.forEach(function(letter, i) {
         // don't use .innerHTML = because it DESTROYS all child elements
         // that is really scary and hard to debug
-        // as I learned the hard way :P
         //
         // https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML
         document.getElementById("option-" + letter).insertAdjacentHTML("afterbegin", trivia.options[i]);
@@ -371,7 +353,6 @@ async function main() {
         }
     });
 
-    // We have to call this function so many times
     center_card();
 }
 
