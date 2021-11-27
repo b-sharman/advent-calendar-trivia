@@ -1,23 +1,3 @@
-// I omitted the colors that didn't seem dark/vibrant enough
-// https://www.w3schools.com/w3css/w3css_colors.asp
-var w3Colors = ["red",
-                "pink",
-                "purple",
-                "deep-purple",
-                "indigo",
-                "blue",
-                "teal",
-                "green",
-//                "light-green",
-//                "orange",
-                "deep-orange",
-                "blue-gray",
-                "brown",
-//                "gray",
-                "dark-gray"
-                ];
-var color = w3Colors[Math.floor(Math.random() * w3Colors.length)];
-
 var months = ["January",
               "February",
               "March",
@@ -34,8 +14,25 @@ var months = ["January",
 var today = new Date();
 var dateString = months[today.getMonth()] + " " + today.getDate();
 
+// I omitted the colors that didn't seem dark/vibrant enough
+// https://www.w3schools.com/w3css/w3css_colors.asp
+var w3Colors = ["green",
+                "blue-gray",
+                "orange",
+                "pink",
+                "deep-orange",
+                "teal",
+                "deep-purple",
+                "cyan",
+                "brown",
+                "purple",
+                "amber",
+                "blue",
+                "indigo"];
+
 for (var element of document.getElementsByClassName("w3-card")) {
-    element.classList.add("w3-border-" + color);
+    // random color
+    element.classList.add("w3-border-" + w3Colors[Math.floor(Math.random() * w3Colors.length)]);
 }
 
 function format(arg) {
@@ -80,8 +77,7 @@ function center_card() {
     // Center the card
     //
     // I'm tired of trying to use CSS hacks to center vertically
-    // This way stinks too
-    // Welcome to web dev
+
     var bodyHeight = document.getElementsByTagName("body")[0].clientHeight;
     var cardHeight = document.getElementsByClassName("w3-card")[0].clientHeight;
     var padding = (bodyHeight - cardHeight) / 2;
@@ -95,6 +91,4 @@ window.onresize = center_card;
 document.getElementById("title").innerHTML = dateString;
 
 checkTime();
-
-// We have to call this function so many times
 center_card();
