@@ -190,28 +190,24 @@ var startOfAdvent;
 
 // I omitted the colors that didn't seem dark/vibrant enough
 // https://www.w3schools.com/w3css/w3css_colors.asp
-var w3Colors = ["red",
-                "pink",
-                "purple",
-                "deep-purple",
-                "indigo",
-                "blue",
-                "teal",
-                "green",
-//                "light-green",
-//                "orange",
-                "deep-orange",
+var w3Colors = ["green",
                 "blue-gray",
+                "orange",
+                "pink",
+                "deep-orange",
+                "teal",
+                "deep-purple",
+                "cyan",
                 "brown",
-//                "gray",
-                "dark-gray"
-                ];
-// indexing w3Colors by the remainder when dividing by its length ensures a different color each
-// day, in the same order as in the list
-var color = w3Colors[today.getDate() % w3Colors.length];
+                "purple",
+                "amber",
+                "blue",
+                "indigo"];
 
 for (var element of document.getElementsByClassName("w3-card")) {
-    element.classList.add("w3-border-" + color);
+    // indexing w3Colors by the remainder when dividing by its length ensures a different color each
+    // day, in the same order as in the list
+    element.classList.add("w3-border-" + w3Colors[today.getDate() % w3Colors.length]);
 }
 
 function format(arg) {
