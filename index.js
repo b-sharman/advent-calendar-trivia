@@ -2,11 +2,11 @@
 // which is like a totally regular thing to do
 // so Javascript sucks
 var triviaJson = `
-{"1":{"title":"What was the name of Joseph\'s father?",
-      "options":["Josiah", "Jechoniah", "Jehoshaphat", "Jacob"],
-      "icons": ["times", "times", "times", "check"],
-      "verse":"&hellip;Matthan the father of Jacob, and Jacob the father of Joseph the husband of Mary, of whom Jesus was born, who is called Christ.",
-      "chapter":"Matthew 1:15b&ndash;16"
+{"1":{"title":"Which verse in Isaiah 9 lists the titles \\"Wonderful Counselor\\", \\"Mighty God\\", \\"Everlasting Father\\", and \\"Prince of Peace\\"?",
+      "options":["4", "5", "6", "7"],
+      "icons": ["times", "times", "check", "times"],
+      "verse":"For to us a child is born, to us a son is given; and the government shall be upon his shoulder, and his name shall be called Wonderful Counselor, Mighty God, Everlasting Father, Prince of Peace.",
+      "chapter":"Isaiah 9:6"
       },
  "2":{"title":"Which angel told Mary she would bear a son?",
       "options":["Michael", "Gabriel", "Lucifer", "Their name wasn\'t mentioned"],
