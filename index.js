@@ -316,7 +316,7 @@ async function main() {
     var daysSinceAdvent = Math.floor((today - startOfAdvent) / 86400000);
     trivia = alltrivia[daysSinceAdvent + 1];
     // uncomment to choose trivia from a certain day
-    // var trivia = alltrivia[10];
+    // trivia = alltrivia[10];
 
     document.title = " Day " + (daysSinceAdvent + 1) + " - Advent Calendar Trivia " + today.getFullYear();
 
