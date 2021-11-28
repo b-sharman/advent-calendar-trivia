@@ -8,11 +8,11 @@ var triviaJson = `
       "verse":"For to us a child is born, to us a son is given; and the government shall be upon his shoulder, and his name shall be called Wonderful Counselor, Mighty God, Everlasting Father, Prince of Peace.",
       "chapter":"Isaiah 9:6"
       },
- "2":{"title":"Which angel told Mary she would bear a son?",
-      "options":["Michael", "Gabriel", "Lucifer", "Their name wasn\'t mentioned"],
-      "icons": ["times", "check", "times", "times"],
-      "verse":"In the sixth month the angel Gabriel was sent from God to a city of Galilee named Nazareth, to a virgin betrothed to a man whose name was Joseph, of the house of David. And the virgin's name was Mary.",
-      "chapter":"Luke 1:26"
+ "2":{"title":"How long did Mary stay with Elizabeth?",
+      "options":["seven days", "two months", "three months", "four months"],
+      "icons": ["times", "times", "check", "times"],
+      "verse":"And Mary remained with her about three months and returned to her home.",
+      "chapter":"Luke 1:56"
      },
  "3":{"title":"Who was governor of Syria when Caesar Augustus called a census?",
       "options":["Antoninus", "Quintinus", "Zechariah", "Quirinius"],
