@@ -249,17 +249,16 @@ function checkTime() {
     var minutes = (hours - Math.trunc(hours)) * 60;
     var seconds = (minutes - Math.trunc(minutes)) * 60;
 
-    // Don't show the number of days if it's only hours left
-    if (Math.trunc(days) == 0) {
-        console.log(":P");
-        var days = "";
+    var waitString = "";
+    // only show the number of days if there's at least one day left
+    if (Math.trunc(days) != 0) {
+        waitString += Math.trunc(days).toString() + " day";
+        if (Math.trunc(days) != 1) { // plural unless there is only 1 day left
+            waitString += "s";
+        }
+        waitString += " ";
     }
-
-    var waitString = Math.trunc(days).toString() + " day";
-    if (Math.trunc(days) != 1) { // plural unless there is only 1 day left
-        waitString += "s";
-    }
-    waitString += " " + format(hours) + ":" + format(minutes) + ":" + format(seconds) + " to wait";
+    waitString += format(hours) + ":" + format(minutes) + ":" + format(seconds) + " to wait";
     document.getElementById("countdown").innerHTML = waitString;
     return true;
 }
